@@ -6,14 +6,10 @@ import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
 import {BasicNft} from "src/BasicNft.sol";
 
 contract MintBasicNft is Script {
-    string public constant SHIBURI =
-        "ipfs://QmVhC43M5bpyY59t8TXKtiVCyYzGxCHjePu8TJWbbQ1BWe";
+    string public constant SHIBURI = "ipfs://bafkreieuzbrvf4kurxc4juku2vpg5p2yualytogdtkcbzuwqbjqwuowzou";
 
     function run() external {
-        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment(
-            "BasicNft",
-            block.chainid
-        );
+        address mostRecentlyDeployed = DevOpsTools.get_most_recent_deployment("BasicNft", block.chainid);
         mintNftOnContract(mostRecentlyDeployed);
     }
 

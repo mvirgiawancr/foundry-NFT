@@ -10,8 +10,7 @@ contract BasicNftTest is Test {
     DeployNft private deployer;
     BasicNft private basicNft;
     address public USER = makeAddr("user");
-    string public constant SHIBURI =
-        "ipfs://QmVhC43M5bpyY59t8TXKtiVCyYzGxCHjePu8TJWbbQ1BWe";
+    string public constant SHIBURI = "ipfs://bafkreieuzbrvf4kurxc4juku2vpg5p2yualytogdtkcbzuwqbjqwuowzou";
 
     function setUp() external {
         deployer = new DeployNft();
@@ -21,19 +20,13 @@ contract BasicNftTest is Test {
     function testNameIsCorrect() external view {
         string memory expectedName = "ShibNFT";
         string memory actualName = basicNft.name();
-        assert(
-            keccak256(abi.encodePacked(expectedName)) ==
-                keccak256(abi.encodePacked(actualName))
-        );
+        assert(keccak256(abi.encodePacked(expectedName)) == keccak256(abi.encodePacked(actualName)));
     }
 
     function testCanMintAndHaveBalance() external {
         vm.prank(USER);
         basicNft.mint(SHIBURI);
         assert(basicNft.balanceOf(USER) == 1);
-        assert(
-            keccak256(abi.encodePacked(basicNft.tokenURI(0))) ==
-                keccak256(abi.encodePacked(SHIBURI))
-        );
+        assert(keccak256(abi.encodePacked(basicNft.tokenURI(0))) == keccak256(abi.encodePacked(SHIBURI)));
     }
 }
