@@ -190,10 +190,11 @@ Key features:
 
 ## 🔗 Dependencies
 
-This project uses OpenZeppelin contracts for ERC-721 implementation:
+This project uses the following libraries:
 
 ```bash
-forge install openzeppelin/openzeppelin-contracts@v5.0.2 --no-commit
+forge install openzeppelin/openzeppelin-contracts --no-commit
+forge install cyfrin/foundry-devops --no-commit
 ```
 
 ## 📜 License
